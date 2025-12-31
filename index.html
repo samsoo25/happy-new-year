@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just for You 💌</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #cdb4db);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 25px;
+  width: 320px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.yes {
+  background: #ff8fab;
+  color: white;
+}
+
+.no {
+  background: #b5838d;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.final {
+  font-size: 26px;
+  color: #ff5d8f;
+  font-weight: bold;
+}
+
+.sub {
+  font-size: 18px;
+  color: #6a0572;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+<body>  <div class="card" id="step1">
+    <h1>I want to show you something 👀</h1>
+    <p>Will you see it?</p>
+    <button class="yes" onclick="showYes()">Yes</button>
+    <button class="no" onclick="showNo()">No 😤</button>
+  </div>  <div class="card hidden" id="stepNo">
+    <h1>How dare you 😤</h1>
+    <p>You HAVE to click yes now 😏</p>
+    <button class="yes" onclick="showYes()">Okay okay 😌</button>
+  </div>  <div class="card hidden" id="step2">
+    <h1>Awwww 🥹</h1>
+    <p>Click here 💞</p>
+    <button class="yes" onclick="showFinal()">Click</button>
+  </div>  <div class="card hidden" id="final">
+    <div class="final">Happy New Year Sidduuu 💌</div>
+    <div class="sub">May all your dreams come true 💞</div>
+      <div class="hearts hidden" id="hearts">💖 💗 💕 💞 💘</div>
+  </div>  <style>
+    .hearts {
+      margin-top: 15px;
+      font-size: 24px;
+      animation: floatHearts 2s infinite ease-in-out;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+  </style>  <script>
+    function showYes() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('stepNo').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function showNo() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('stepNo').classList.remove('hidden');
+    }
+
+    function showFinal() {
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('final').classList.remove('hidden');
+      document.getElementById('hearts').classList.remove('hidden');
+    }
+  </script></body>
+</html>
